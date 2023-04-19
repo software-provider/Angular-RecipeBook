@@ -1,0 +1,35 @@
+#recipe {
+  margin-bottom: 3em;
+
+  .flex-container {
+    display: flex;
+
+    .flex-item {
+      &:nth-child(1) {
+        width: 25%;
+        margin-right: 2em;
+      }
+
+      &:nth-child(2) {
+        width: 75%;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1030px) {
+    .flex-container {
+      flex-direction: column;
+
+      .flex-item {
+        &:nth-child(1),
+        &:nth-child(2) {
+          width: 100%;
+        }
+
+        &:nth-child(2) {
+          padding-top: 2em;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+#sign-in-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 175px);
+
+  #sign-in-form {
+    width: 100%;
+    max-width: 26.75em;
+    padding: 1.75em 2.5em 2.5em;
+    border-radius: 0.625em;
+    box-shadow: 0 0.9375em 1.5625em #66666680;
+    font-variant: petite-caps;
+
+    h1 {
+      text-align: center;
+      color: #3379b7;
+      padding: 0 0 0.3em 0;
+      cursor: default;
+    }
+
+    .input-group {
+      border-bottom: 2px solid #adadad;
+      margin: 3em 0;
+
+      input {
+        width: 100%;
+        height: 2.5em;
+        border: none;
+        outline: none;
+
+        &:focus,
+        &.ng-valid {
+          ~ label {
+            top: -0.8em;
+            color: #3379b7;
+          }
+
+          ~ span {
+            &::before {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      label {
+        position: absolute;
+        top: 30%;
+        color: #adadad;
+        transform: translateY(-50%);
+        pointer-events: none;
+        transition: 0.5s;
+      }
+
+      span::before {
+        content: '';
+        position: absolute;
+        top: 2.5em;
+        left: 0;
+        width: 0%;
+        height: 0.1em;
+        background: #3379b7;
+        transition: 0.5s;
+      }
+    }
+
+    #stay-logged-in-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5em;
+      color: #3379b7;
+
+      ui-switch {
+        width: 15%;
+
+        ::ng-deep {
+          .switch {
+            &.checked {
+              background: #3379b7;
+            }
+          }
+        }
+      }
+
+      label {
+        margin-top: 0.25em;
+        margin-bottom: 0em;
+      }
+    }
+
+    #operations-container {
+      text-align: center;
+
+      button[type='submit'] {
+        font-family: 'Raleway', sans-serif;
+        font-variant: petite-caps;
+        background: #ffffff;
+        color: #3379b7;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        border: 0.1em solid #3379b7;
+        border-radius: 0.3em;
+        transition: 0.2s all;
+        -webkit-box-shadow: 0em 0.25em 0.9375em -0.3125em #0000004d;
+        box-shadow: 0px 0.25em 0.9375em -0.3125em #0000004d;
+
+        &:hover {
+          background: #3379b7;
+          color: #ffffff;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: initial;
+
+          &:hover {
+            transform: none;
+            color: #3379b7;
+            background: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}

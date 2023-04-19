@@ -1,0 +1,18 @@
+.container {
+  max-width: none;
+
+  padding-top: 3em;
+  padding-bottom: 0em;
+  padding-left: 4em;
+  padding-right: 4em;
+
+  &.content-container {
+    &.signed-in {
+      min-height: calc(100vh - 149px);
+    }
+
+    &.checked-out {
+      min-height: calc(100vh - 76px);
+    }
+  }
+}

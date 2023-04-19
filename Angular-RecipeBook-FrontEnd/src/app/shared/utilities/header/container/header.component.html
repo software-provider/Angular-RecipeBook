@@ -1,0 +1,33 @@
+<header>
+  <div id="title">
+    <div id="sub-title">
+      <span>{{ titleData?.subTitle }}</span>
+    </div>
+    <div id="main-title">
+      <span>{{ titleData?.mainTitle }}</span>
+    </div>
+  </div>
+  <div id="avatar">
+    <ngx-avatar
+      name="{{ authorizedUserData?.userName }}"
+      size="45"
+      textSizeRatio="2"
+      bgColor="#343a40"
+      appDropDown
+      #r="appDropDown"
+    ></ngx-avatar>
+    <div class="dropdown">
+      <div class="dropdown-menu dropdown-menu-right" [ngClass]="{ show: r.isOpen }">
+        <app-authorized-user-information [authorizedUserData]="authorizedUserData"></app-authorized-user-information>
+        <a class="dropdown-item" (click)="onSignOut()">
+          <div class="content">
+            <span>
+              <fa-icon icon="sign-out-alt"></fa-icon>
+            </span>
+            <span>Sign out</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

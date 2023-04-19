@@ -1,0 +1,33 @@
+#shopping-list {
+  .flex-container {
+    display: flex;
+    width: 100%;
+
+    create-or-edit-shopping-list-ingredient {
+      width: 50%;
+      padding-right: 4em;
+    }
+
+    shopping-list-ingredient-list {
+      width: 50%;
+      padding-left: 4em;
+    }
+  }
+
+  @media only screen and (max-width: 1030px) {
+    .flex-container {
+      flex-direction: column;
+
+      create-or-edit-shopping-list-ingredient {
+        width: 100%;
+        padding-right: 0em;
+        padding-bottom: 4em;
+      }
+
+      shopping-list-ingredient-list {
+        width: 100%;
+        padding-left: 0em;
+      }
+    }
+  }
+}

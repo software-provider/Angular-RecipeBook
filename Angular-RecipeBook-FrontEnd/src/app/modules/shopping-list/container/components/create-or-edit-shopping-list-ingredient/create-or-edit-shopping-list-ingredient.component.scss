@@ -1,0 +1,52 @@
+#create-or-edit-shopping-list-ingredient {
+  #header {
+    font-variant: petite-caps;
+    display: flex;
+  }
+
+  #create-or-edit-form {
+    #input-fields {
+      font-variant: petite-caps;
+
+      .flex-container {
+        &:nth-child(1) {
+          display: flex;
+          width: 100%;
+
+          .form-group {
+            margin-right: 1em;
+
+            &:nth-child(1) {
+              width: 90%;
+            }
+
+            &:nth-child(2) {
+              width: 10%;
+              min-width: 7em;
+              margin-right: 0em;
+            }
+          }
+        }
+
+        &:nth-child(2) {
+          .validation-error {
+            margin-bottom: 0;
+
+            &:last-child {
+              margin-bottom: 1.5em;
+            }
+          }
+        }
+      }
+    }
+
+    #operation-btns {
+      display: flex;
+      justify-content: center;
+
+      button {
+        font-variant: petite-caps;
+      }
+    }
+  }
+}

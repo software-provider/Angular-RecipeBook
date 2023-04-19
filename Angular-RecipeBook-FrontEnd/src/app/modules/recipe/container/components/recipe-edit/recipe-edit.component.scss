@@ -1,0 +1,114 @@
+#recipeForm {
+  .flex-container {
+    .card {
+      margin-bottom: 3em;
+    }
+
+    .card:nth-child(1) {
+      font-variant: petite-caps;
+      &:nth-child(1) {
+        margin-top: 1.5em;
+
+        .form-group:nth-child(2) {
+          .flex-container {
+            .flex-item:nth-child(1) {
+              margin-bottom: 2em;
+            }
+
+            .flex-item:nth-child(2) {
+              text-align: center;
+
+              .img-fluid {
+                max-width: 16em;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .card:nth-child(2) {
+      font-variant: petite-caps;
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+          font-variant: petite-caps;
+        }
+      }
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        padding-right: 0.43em;
+
+        .flex-container {
+          &:nth-child(1) {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0px;
+
+            .form-group {
+              margin-right: 1em;
+
+              &:nth-child(1) {
+                width: 85%;
+              }
+
+              &:nth-child(2) {
+                width: 10%;
+                min-width: 7em;
+              }
+
+              &:nth-child(3) {
+                button {
+                  margin-top: 1.8em;
+                }
+              }
+            }
+          }
+
+          &:nth-child(2) {
+            .validation-error {
+              margin-bottom: 0;
+
+              &:last-child {
+                margin-bottom: 1.5em;
+              }
+            }
+          }
+        }
+      }
+
+      @media only screen and (max-width: 1030px) {
+        .card-body {
+          .flex-container {
+            &:nth-child(1) {
+              .form-group {
+                &:nth-child(1) {
+                  min-width: 5.3em;
+                }
+
+                &:nth-child(2) {
+                  min-width: 6em;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    #operation-btns-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button {
+        font-variant: petite-caps;
+      }
+    }
+  }
+}

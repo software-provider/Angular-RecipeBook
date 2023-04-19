@@ -1,0 +1,68 @@
+<div id="create-or-edit-shopping-list-ingredient">
+  <div id="header">
+    <h2 *ngIf="ingredientArrayIndex().value === null; then createHeaderTmp; else editHeaderTmp"></h2>
+  </div>
+  <hr />
+
+  <form id="create-or-edit-form" [formGroup]="shoppingListIngredientForm" (ngSubmit)="onCreateOrEditItem()">
+    <input type="text" id="arrayIndex" class="form-control hidden" formControlName="arrayIndex" />
+
+    <div id="input-fields">
+      <div class="flex-container">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" type="text" class="form-control" formControlName="name" />
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input
+            formControlName="amount"
+            class="form-control"
+            currencyMask
+            [options]="{
+              min: '0',
+              max: '999999',
+              allowNegative: 'false',
+              precision: 0
+            }"
+          />
+        </div>
+      </div>
+      <div class="flex-container">
+        <div class="validation-error" *ngIf="!ingredientName().valid && ingredientName().touched">
+          <span><strong>Name</strong> is required</span>
+        </div>
+        <div class="validation-error" *ngIf="!ingredientAmount().valid && ingredientAmount().touched">
+          <span *ngIf="ingredientAmount().errors?.required"><strong>Amount</strong> is required</span>
+          <span *ngIf="ingredientAmount().errors?.notValidAmount">
+            <strong>Amount</strong> must be greater or equal than zero
+          </span>
+        </div>
+      </div>
+    </div>
+    <div id="operation-btns">
+      <button class="btn btn-outline-success mr-2" type="submit" [disabled]="!shoppingListIngredientForm.valid">
+        <span *ngIf="ingredientArrayIndex().value === null"> <fa-icon icon="plus"></fa-icon> Add</span>
+        <span *ngIf="ingredientArrayIndex().value !== null"><fa-icon icon="sync-alt"></fa-icon> Update</span>
+      </button>
+      <button class="btn btn-outline-dark mr-2" type="button" (click)="onClear()">
+        <span> <fa-icon icon="eraser"></fa-icon> Clear</span>
+      </button>
+      <button
+        *ngIf="ingredientArrayIndex().value !== null"
+        class="btn btn-outline-danger"
+        type="button"
+        (click)="onDelete()"
+      >
+        <span> <fa-icon icon="trash-alt"></fa-icon> Remove</span>
+      </button>
+    </div>
+  </form>
+</div>
+
+<ng-template #createHeaderTmp>
+  <h2>Create shopping list ingredient</h2>
+</ng-template>
+<ng-template #editHeaderTmp>
+  <h2>Edit shopping list ingredient</h2>
+</ng-template>

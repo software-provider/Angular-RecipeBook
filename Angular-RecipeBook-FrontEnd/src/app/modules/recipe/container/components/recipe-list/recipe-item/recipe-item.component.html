@@ -1,0 +1,15 @@
+<li
+  class="recipe-list-group-item list-group-item list-group-item-action"
+  [routerLink]="[index]"
+  routerLinkActive="active"
+>
+  <div class="item-header">
+    <h4>{{ recipeListItem.name }}</h4>
+    <img [src]="recipeListItem.imagePath" alt="{{ recipeListItem.name }}" class="img-fluid" />
+  </div>
+  <hr />
+
+  <div class="item-content">
+    <p>{{ recipeListItem.description | truncate: [190, '...'] }}</p>
+  </div>
+</li>

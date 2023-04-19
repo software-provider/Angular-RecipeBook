@@ -1,0 +1,104 @@
+<form id="recipeForm" [formGroup]="recipeForm" (ngSubmit)="onUpdateRecipe()" *ngIf="recipeForm">
+  <input type="text" id="id" class="form-control hidden" formControlName="id" />
+
+  <div class="flex-container">
+    <div class="card">
+      <div class="card-header">Details</div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" type="text" class="form-control" formControlName="name" />
+          <div class="validation-error" *ngIf="!recipeName().valid && recipeName().touched">
+            <span *ngIf="recipeName().errors?.required"> <strong>Name</strong> is required </span>
+            <span *ngIf="recipeName().errors?.recipeNameIsExist">
+              <strong>Name</strong> is exists! Please choose an another one!
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="flex-container">
+            <div class="flex-item">
+              <label for="imagePath">Image path</label>
+              <input id="imagePath" type="text" class="form-control" formControlName="imagePath" />
+              <div class="validation-error" *ngIf="!recipeImgPath().valid && recipeImgPath().touched">
+                <span><strong>Image path</strong> is required</span>
+              </div>
+            </div>
+            <div class="flex-item">
+              <img [src]="recipeImgPath().value" class="img-fluid" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" class="form-control" formControlName="description" rows="6"></textarea>
+          <div class="validation-error" *ngIf="!recipeDescription().valid && recipeDescription().touched">
+            <span><strong>Description</strong> is required</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span>Ingredients</span>
+        <button type="button" class="btn btn-outline-success" (click)="onAddNewRecipeIngredient()">
+          <span><fa-icon icon="plus"></fa-icon></span> New Ingredient
+        </button>
+      </div>
+      <div class="card-body" formArrayName="ingredients">
+        <div *ngFor="let ingredientCtrl of ingredients.controls; let i = index" [formGroupName]="i">
+          <div class="flex-container">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input id="name" type="text" class="form-control" formControlName="name" />
+            </div>
+            <div class="form-group">
+              <label for="amount">Amount</label>
+              <input
+                formControlName="amount"
+                class="form-control"
+                currencyMask
+                [options]="{
+                  min: '0',
+                  max: '999999',
+                  allowNegative: 'false',
+                  precision: 0
+                }"
+              />
+            </div>
+            <div class="form-group">
+              <button type="button" class="btn btn-outline-danger" (click)="onDeleteRecipeIngredient(i)">
+                <span><fa-icon icon="trash-alt"></fa-icon></span>
+              </button>
+            </div>
+          </div>
+          <div class="flex-container">
+            <div class="validation-error" *ngIf="!ingredientName(i).valid && ingredientName(i).touched">
+              <span><strong>Name</strong> is required</span>
+            </div>
+            <div class="validation-error" *ngIf="!ingredientAmount(i).valid && ingredientAmount(i).touched">
+              <span *ngIf="ingredientAmount(i).errors?.required"> <strong>Amount</strong> is required </span>
+              <span *ngIf="ingredientAmount(i).errors?.notValidAmount">
+                <strong>Amount</strong> must be greater or equal than zero
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="operation-btns-container">
+      <button
+        type="submit"
+        class="btn btn-outline-success mr-2"
+        [disabled]="!recipeForm.valid || !recipeForm.get('ingredients').valid"
+      >
+        <span> <fa-icon icon="save"></fa-icon> Save</span>
+      </button>
+      <button type="button" class="btn btn-outline-dark mr-2" (click)="onCancel()">
+        <span> <fa-icon icon="redo-alt"></fa-icon> Cancel</span>
+      </button>
+    </div>
+  </div>
+</form>

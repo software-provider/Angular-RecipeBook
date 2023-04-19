@@ -1,0 +1,69 @@
+#shopping-list-ingredients {
+  #header {
+    display: flex;
+    justify-content: space-between;
+    font-variant: petite-caps;
+
+    ul#operations.dropdown-menu {
+      a {
+        padding-left: 1em;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #eeeeee;
+          color: #000000;
+        }
+
+        &.dropdown-item:active {
+          background-color: #e0e0e0;
+          color: #000000;
+        }
+
+        .flex-container {
+          display: flex;
+          align-items: center;
+          width: 100%;
+
+          .btn-icon {
+            width: 2em;
+            margin-right: 0.6em;
+            text-align: center;
+          }
+
+          .btn-content {
+            width: 90%;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 592px) {
+      button {
+        .btn-content {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .list-group {
+    max-height: 40em;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 0.5em;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+      background: #ededed;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 3px;
+      background-color: white;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+ui-switch {
+  min-height: 2em;
+
+  button {
+    &.switch {
+      &.checked {
+        border: none;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

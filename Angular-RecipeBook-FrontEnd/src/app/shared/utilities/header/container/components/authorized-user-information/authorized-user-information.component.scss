@@ -1,0 +1,28 @@
+#authorized-user-information {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1em;
+  padding-top: 0.5em;
+  border-bottom: 1px solid #efefee;
+  cursor: default;
+
+  .labels {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 1em;
+    margin-right: 1em;
+
+    span {
+      &:nth-child(1) {
+        font-weight: bold;
+        font-size: 0.875em;
+      }
+
+      &:nth-child(2) {
+        font-size: 0.8em;
+      }
+    }
+  }
+}

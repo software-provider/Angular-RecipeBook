@@ -1,0 +1,13 @@
+<div id="authorized-user-information">
+  <ngx-avatar
+    id="authorized-user-avatar"
+    name="{{ authorizedUserData?.userName }}"
+    size="35"
+    textSizeRatio="2"
+    bgColor="#343a40"
+  ></ngx-avatar>
+  <div class="labels">
+    <span>{{ authorizedUserData?.userFullName }}</span>
+    <span>{{ authorizedUserData?.emailAddress }}</span>
+  </div>
+</div>

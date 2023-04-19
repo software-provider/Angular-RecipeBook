@@ -1,0 +1,13 @@
+<div id="sidebar-item-list" class="list-group">
+  <li id="toggle-element">
+    <span (click)="onNavSideClose()">
+      <fa-icon icon="book-open"></fa-icon>Recipe Book
+    </span>
+  </li>
+  <hr />
+  <app-opened-sidebar-item
+    *ngFor="let linkItem of linkItems"
+    [linkItem]="linkItem"
+  >
+  </app-opened-sidebar-item>
+</div>

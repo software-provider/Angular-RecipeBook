@@ -1,0 +1,20 @@
+ng-sidebar-container {
+  ::ng-deep {
+    ng-sidebar {
+      aside {
+        &.ng-sidebar--opened {
+          padding: 0em;
+          padding-left: 1em;
+          padding-right: 1em;
+          background: #343a40;
+        }
+
+        &.ng-sidebar--closed {
+          padding: 0;
+          width: 3.75em;
+          background: #343a40;
+        }
+      }
+    }
+  }
+}

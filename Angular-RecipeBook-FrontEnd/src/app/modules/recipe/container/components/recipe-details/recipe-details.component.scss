@@ -1,0 +1,113 @@
+#recipe-detail {
+  font-variant: petite-caps;
+
+  #header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > span {
+      max-width: 40em;
+      word-break: break-word;
+    }
+
+    .flex-container {
+      ul#operations.dropdown-menu {
+        a {
+          transition: 0.3s;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #eeeeee;
+            color: black;
+          }
+
+          &.dropdown-item:active {
+            background-color: #e0e0e0;
+            color: black;
+          }
+
+          .flex-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            .btn-icon {
+              width: 10%;
+              margin-right: 0.6em;
+            }
+
+            .btn-content {
+              width: 90%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #content {
+    display: flex;
+    flex-direction: column;
+
+    #recipe-img {
+      text-align: center;
+
+      .img-fluid {
+        max-width: 15em;
+      }
+    }
+
+    #recipe-ingredients {
+      ul.list-group {
+        max-height: 16em;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+          width: 0.5em;
+          background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          border-radius: 3px;
+          background: #959595;
+        }
+
+        &::-webkit-scrollbar-track {
+          border-radius: 3px;
+          background-color: white;
+        }
+
+        li.list-group-item {
+          padding-top: 0px;
+          padding-bottom: 0px;
+          padding-right: 0.5em;
+
+          .flex-container {
+            display: flex;
+            width: 100%;
+
+            span {
+              padding-top: 10px;
+              padding-bottom: 10px;
+
+              &:nth-child(1) {
+                width: 90%;
+                text-align: start;
+                word-break: break-word;
+              }
+
+              &:nth-child(2) {
+                width: 10%;
+                min-width: 4.5em;
+                text-align: end;
+                word-break: break-all;
+                border-left: 1px solid #e9e9e9;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

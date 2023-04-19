@@ -1,0 +1,11 @@
+.btn {
+  &.btn-outline-success,
+  &.btn-outline-dark,
+  &.btn-outline-danger {
+    &:not(:disabled):not(.disabled):active:focus,
+    &:focus,
+    &:focus-within {
+      box-shadow: none;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<div id="shopping-list-ingredients">
+  <div id="header">
+    <h2>Ingredients</h2>
+    <div>
+      <button class="btn btn-outline-dark mr-2" type="button" (click)="onClearingShoppingListIngredients()">
+        <span><fa-icon icon="eraser"></fa-icon></span> <span class="btn-content"> Clear list</span>
+      </button>
+      <div class="flex-container p-2 btn-group" appDropDown #r="appDropDown">
+        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown">
+          <span><fa-icon icon="tasks"></fa-icon></span>
+        </button>
+
+        <ul id="operations" class="dropdown-menu dropdown-menu-right" [ngClass]="{ show: r.isOpen }">
+          <li>
+            <a class="dropdown-item" (click)="onSaveShoppingList()">
+              <div class="flex-container">
+                <div class="btn-icon"><fa-icon icon="save"></fa-icon></div>
+                <div class="btn-content"><span>Save shopping list ingredients</span></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="onFetchLastSavedShoppingList()">
+              <div class="flex-container">
+                <div class="btn-icon"><fa-icon icon="file-download"></fa-icon></div>
+                <div class="btn-content"><span>Fetch last saved shopping list</span></div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <hr />
+
+  <div class="list-group">
+    <shopping-list-ingredient-item
+      *ngFor="let ingredient of shoppingListIngredients; let arrayIndex = index"
+      [ingredient]="ingredient"
+      [arrayIndex]="arrayIndex"
+    >
+    </shopping-list-ingredient-item>
+  </div>
+</div>

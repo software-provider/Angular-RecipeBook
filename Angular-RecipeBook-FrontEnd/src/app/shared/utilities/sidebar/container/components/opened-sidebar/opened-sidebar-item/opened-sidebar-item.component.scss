@@ -1,0 +1,41 @@
+li {
+  &.opened-sidebar-item {
+    text-align: left;
+    font-size: 1.25em;
+    padding-top: 1px;
+    border-radius: 0.3em;
+    height: 1.65em;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background: #a1a1a1;
+
+      span {
+        color: #e6e6e6;
+      }
+    }
+
+    .link-item {
+      display: flex;
+
+      span {
+        color: #ffffff;
+
+        &:nth-child(1) {
+          width: 15%;
+          text-align: center;
+        }
+
+        &:nth-child(2) {
+          font-size: 0.7em;
+          font-weight: 100;
+          margin-top: 0.4em;
+          margin-bottom: 0em;
+          padding-left: 0.5em;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+}

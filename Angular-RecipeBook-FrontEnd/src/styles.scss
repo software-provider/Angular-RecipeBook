@@ -1,0 +1,29 @@
+@import '~ngx-toastr/toastr';
+@import '~ngx-ui-switch/ui-switch.component.scss';
+
+@import './styles/custom-ui-switch.scss';
+@import './styles/custom-btn.scss';
+
+html,
+body {
+  height: 100%;
+
+  .container {
+    &.content-container {
+      input.ng-invalid.ng-touched,
+      textarea.ng-invalid.ng-touched {
+        border: 1px solid #e53935;
+      }
+
+      input.form-control.hidden {
+        display: none;
+      }
+
+      .validation-error {
+        padding-top: 0.3em;
+        margin-bottom: 1.5em;
+        color: #e53935;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+ngx-spinner {
+  width: 100px;
+  ::ng-deep {
+    .loading-text {
+      > p {
+        color: #ffffff;
+      }
+    }
+  }
+}

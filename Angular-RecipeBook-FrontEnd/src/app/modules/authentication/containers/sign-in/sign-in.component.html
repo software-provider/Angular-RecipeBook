@@ -1,0 +1,22 @@
+<div id="sign-in-wrapper">
+  <form id="sign-in-form" [formGroup]="signInForm" (ngSubmit)="onSignIn()">
+    <h1>Sign in</h1>
+    <div class="input-group">
+      <input type="text" formControlName="userName" />
+      <span></span>
+      <label>User name</label>
+    </div>
+    <div class="input-group">
+      <input type="password" formControlName="password" />
+      <span></span>
+      <label>Password</label>
+    </div>
+    <div id="stay-logged-in-group">
+      <ui-switch id="is-persistent-switch" formControlName="isPersistent"></ui-switch>
+      <label>Stay logged in</label>
+    </div>
+    <div id="operations-container">
+      <button type="submit" class="" [disabled]="!signInForm.valid">Sign in</button>
+    </div>
+  </form>
+</div>

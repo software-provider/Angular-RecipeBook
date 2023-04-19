@@ -1,0 +1,6 @@
+<li class="shopping-list-ingredient-list-group-item list-group-item" (click)="onEditItem(arrayIndex)">
+  <div class="flex-container">
+    <span>{{ ingredient.name }}</span>
+    <span>{{ ingredient.amount | thousandSeparator: ['.', ','] }}</span>
+  </div>
+</li>

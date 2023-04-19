@@ -1,0 +1,66 @@
+<div id="recipe-detail" *ngIf="recipe">
+  <div id="header">
+    <span class="p-2">
+      <h3>{{ recipe.name }}</h3>
+    </span>
+
+    <div class="flex-container p-2 btn-group" appDropDown #r="appDropDown">
+      <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown">
+        <span><fa-icon icon="tasks"></fa-icon></span>
+      </button>
+
+      <ul id="operations" class="dropdown-menu dropdown-menu-right" [ngClass]="{ show: r.isOpen }">
+        <li>
+          <a class="dropdown-item" (click)="onAddRecipeIngredientsToShoppingList()">
+            <div class="flex-container">
+              <div class="btn-icon"><fa-icon icon="plus-square"></fa-icon></div>
+              <div class="btn-content"><span>To Shopping List</span></div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="onEditRecipe()">
+            <div class="flex-container">
+              <div class="btn-icon"><fa-icon icon="cogs"></fa-icon></div>
+              <div class="btn-content"><span>Edit Recipe</span></div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="onDeleteRecipe(recipe.id)">
+            <div class="flex-container">
+              <div class="btn-icon"><fa-icon icon="trash-alt"></fa-icon></div>
+              <div class="btn-content"><span>Delete Recipe</span></div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="content">
+    <div id="recipe-img" class="p-2">
+      <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-fluid" />
+    </div>
+    <div class="p-2">
+      <h4>Recipe Description</h4>
+      <hr />
+    </div>
+    <div class="p-2">
+      <p>{{ recipe.description }}</p>
+    </div>
+    <div id="recipe-ingredients" class="flex-item p-2">
+      <h4>Ingredients</h4>
+      <hr />
+
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+          <div class="flex-container">
+            <span>{{ ingredient.name }}</span>
+            <span>{{ ingredient.amount | thousandSeparator: ['.', ','] }}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

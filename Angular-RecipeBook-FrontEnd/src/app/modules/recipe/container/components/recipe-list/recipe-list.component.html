@@ -1,0 +1,17 @@
+<section id="recipe-list">
+  <button id="create-recipe-btn" class="btn btn-outline-success" (click)="onCreateRecipe()">
+    <span><fa-icon icon="plus"></fa-icon></span> New Recipe
+  </button>
+
+  <hr />
+
+  <div class="p-2">
+    <div class="list-group">
+      <app-recipe-item
+        *ngFor="let recipeListItem of recipeListItems"
+        [recipeListItem]="recipeListItem"
+        [index]="recipeListItem.id"
+      ></app-recipe-item>
+    </div>
+  </div>
+</section>

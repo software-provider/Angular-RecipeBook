@@ -1,0 +1,40 @@
+#sidebar-item-list {
+  font-variant: petite-caps;
+
+  &.list-group {
+    list-style: none;
+
+    #toggle-element {
+      text-align: center;
+      font-size: 2.25em;
+      margin-bottom: 0.4em;
+      margin-top: 0.4em;
+      cursor: pointer;
+
+      &:hover {
+        span {
+          color: #e6e6e6;
+        }
+      }
+
+      span {
+        color: #ffffff;
+        transition: 0.3s;
+
+        fa-icon {
+          padding-right: 0.4em;
+        }
+      }
+    }
+
+    hr {
+      width: 100%;
+      margin-top: 0em;
+      border-top: 1px solid rgb(255 255 255 / 50%);
+    }
+
+    app-opened-sidebar-item + app-opened-sidebar-item {
+      margin-top: 0.6em;
+    }
+  }
+}

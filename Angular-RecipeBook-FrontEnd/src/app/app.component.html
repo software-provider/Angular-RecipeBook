@@ -1,0 +1,11 @@
+<loading-spinner></loading-spinner>
+
+<app-sidebar [isVisible$]="userSignInState$">
+  <app-header *ngIf="userSignInState$ | async"></app-header>
+
+  <div class="container content-container" [ngClass]="(userSignInState$ | async) ? 'signed-in' : 'checked-out'">
+    <router-outlet></router-outlet>
+  </div>
+
+  <app-footer></app-footer>
+</app-sidebar>

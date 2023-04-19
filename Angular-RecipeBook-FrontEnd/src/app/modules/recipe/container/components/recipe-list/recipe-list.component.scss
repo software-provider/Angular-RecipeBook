@@ -1,0 +1,34 @@
+#recipe-list {
+  #create-recipe-btn {
+    font-variant: petite-caps;
+  }
+
+  .list-group {
+    max-height: 45em;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 0.5em;
+      height: 0.5em;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+      background: #ededed;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 3px;
+      background-color: #ffffff;
+    }
+
+    app-recipe-item {
+      min-width: 10.875em;
+    }
+
+    app-recipe-item + app-recipe-item {
+      margin-top: 20px;
+    }
+  }
+}
